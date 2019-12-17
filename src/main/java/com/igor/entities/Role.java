@@ -1,4 +1,4 @@
-package com.igor.entity;
+package com.igor.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;

@@ -1,4 +1,4 @@
-package com.igor.entity;
+package com.igor.entities;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

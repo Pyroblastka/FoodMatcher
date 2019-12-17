@@ -1,4 +1,4 @@
-package com.igor.entity;
+package com.igor.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -22,6 +22,11 @@ public class User extends AbstractEntity {
     private String email;
     @Column
     private String password;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<DishReview> dishReviews;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<CafeReview> cafeReviews;
 
     public User() {
     }
@@ -32,6 +37,22 @@ public class User extends AbstractEntity {
         this.password = password;
         this.roles = roles;
         this.email = email;
+    }
+
+    public List<DishReview> getDishReviews() {
+        return dishReviews;
+    }
+
+    public void setDishReviews(List<DishReview> dishReviews) {
+        this.dishReviews = dishReviews;
+    }
+
+    public List<CafeReview> getCafeReviews() {
+        return cafeReviews;
+    }
+
+    public void setCafeReviews(List<CafeReview> cafeReviews) {
+        this.cafeReviews = cafeReviews;
     }
 
     public int getEnabled() {
