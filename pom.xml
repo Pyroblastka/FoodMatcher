@@ -18,33 +18,33 @@
         <springtools.version>2.1.6.RELEASE</springtools.version>
     </properties>
     <dependencies>
-        <!-- Spring Security -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-            <version>${springtools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>5.1.6.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>5.1.6.RELEASE</version>
-        </dependency>
+<!--        &lt;!&ndash; Spring Security &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--            <version>${springtools.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-web</artifactId>-->
+<!--            <version>5.1.6.RELEASE</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-config</artifactId>-->
+<!--            <version>5.1.6.RELEASE</version>-->
+<!--        </dependency>-->
         <!-- наш старый добрый thymeleaf шаблонизатор -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
             <version>${springtools.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-            <version>3.0.4.RELEASE </version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.thymeleaf.extras</groupId>-->
+<!--            <artifactId>thymeleaf-extras-springsecurity5</artifactId>-->
+<!--            <version>3.0.4.RELEASE </version>-->
+<!--        </dependency>-->
         <!-- содержит в себе необходимые библиотеки для создания ВЕБ приложения -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
