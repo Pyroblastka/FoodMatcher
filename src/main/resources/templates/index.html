@@ -4,57 +4,98 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--    <meta name="viewport" content="width=1024, initial-scale=1">-->
     <link th:href="@{'/css/mycss.css'}" rel="stylesheet"/>
     <link th:href="@{'/css/bootstrap.min.css'}" rel="stylesheet"/>
 </head>
 <body>
 
+<div class="backgr" style="background: #f4f4f4">
 
 <div class="mainContainer">
     <div th:replace="fragments/navbarth :: navbar"></div>
     <div class="row" style="margin-right: 0px; margin-left: 0px; ">
 
-        <div class="row" id="idrow">
+        <div class="row" id="idrow" >
             <img src="/img/mainimg.png" style="width: 100%">
-<!--            <img src="/img/mainimg2.png" style="width: 100%">-->
+            <!--            <img src="/img/mainimg2.png" style="width: 100%">-->
         </div>
 
-        <div class="row" id="idrow">
-        <div class="col-md-3" style="margin-top: 1rem;">
-            <div th:replace="fragments/menuth :: menu"></div>
-        </div>
-        <div class="col-md-9" style="margin-top: 1rem;" >
-            <div class="row" th:each="i: ${#numbers.sequence(1,4)}">
+        <div  style="width: 100%; margin: 1em 0 1em 0em; padding-left: 7%; padding-right: 7%; background: #fff; padding-top: 1em; border-radius: 7px">
 
-                <div class="card"
-                     style="width: 18rem;  margin-left: 0.75rem; margin-bottom:1rem;   border: 1px red solid; border-radius: 10px"
-                     th:each="e: ${#numbers.sequence(1,3)}">
+            <div class="row" style="margin-bottom: 1em"    th:each="i: ${#numbers.sequence(1,2)}">
+            <div  th:each="i: ${#numbers.sequence(1,4)}">
+            <div class="card bg-dark text-white text-center " style="width: 16rem; height: 10rem; margin-left: 0.75rem; ">
+                <img src="/img/doeat.jpg" style="width: 100%; height: 100%" alt="Travel1" class="card-img">
+                <div class="card-img-overlay" style="padding: 0.25rem">
+                    <div style="position: absolute">
+                        <!--                        <h4 class="card-title">Do eat</h4>-->
+                        <!--                        <h4 class="card-title">кафе для вашей мамаши</h4>-->
 
-                    <div style="margin: 1rem">
-                        <a href="index.html" style=" text-decoration: none;">
-                            <img src="/img/sh.png" class="card-img-top" alt="...">
-                        </a>
-                        <div class="card-body">
-                            <a href="index.html" style=" text-decoration: none;">
-                                <h6>Название</h6>
-                            </a>
-                            <span>rating</span>
-                            <hr style="margin-top: 0.25rem; margin-bottom: 0.25rem;">
-                            <p class="card-text">Лучок, капустка, мазик</p>
+                        <h4 th:text="${#strings.length('кафе для вашей мамаши')>15}? ${#strings.substring('кафе для вашей мамаши',0,15)}+'...' :'gruntov'"></h4>
+                    </div>
+                    <div class="row" style="margin: 0 0 0 0; position: absolute; top: 2em; width: 100%">
+                        <div class="col-md-4;" style="width: 33%; text-align: left">
+                            <h6>Кафе</h6>
                         </div>
+                        <div class="col-md-5" style="width: 33%; text-align: right">до 24:00</div>
+                        <div class="col-md-3" style="width: 33%;"></div>
+                    </div>
+                    <div style="position: absolute; right: 2.25em;     top: 0.5em;">
+                        <img src="img/star.png" style="height: 20px;">
+                    </div>
+                    <div style="position: absolute; right: 0.75em;     top: 0.7em;">
+                        <h6>5/5</h6>
                     </div>
 
+                    <div style="position: absolute; bottom: 0.5em; right: 0.5em ">
+                        <a href="#" class="btn btn-dark text-white mt-1">Посмотреть</a>
+                    </div>
                 </div>
-
-
-            </div>
+            </div> <!-- card end-->
+            </div> <!-- col each -->
         </div>
+
+        </div>
+
+        <div class="row" id="idrow" style="width: 100%; background: chartreuse">
+            <div class="col-md-3" style="margin-top: 1rem; ">
+                <div th:replace="fragments/menuth :: menu"></div>
+            </div>
+            <div class="col-md-9" style="margin-top: 1rem; padding-right: 0px;padding-left: 0px">
+                <div class="row" th:each="i: ${#numbers.sequence(1,4)}">
+
+                    <div class="card"
+                         style="width: 18rem;  margin-left: 0.75rem; margin-bottom:1rem;   border: 1px red solid; border-radius: 10px"
+                         th:each="e: ${#numbers.sequence(1,3)}">
+
+                        <div style="margin: 1rem">
+                            <a href="index.html" style=" text-decoration: none;">
+                                <img src="/img/sh.png" class="card-img-top" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <a href="index.html" style=" text-decoration: none;">
+                                    <h6>Название</h6>
+                                </a>
+                                <span>rating</span>
+                                <hr style="margin-top: 0.25rem; margin-bottom: 0.25rem;">
+                                <p class="card-text">Лучок, капустка, мазик</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <div class="footerContainer">
     <div th:replace="fragments/footerth :: footer"></div>
 </div>
+</div>
+
 <div th:replace="fragments/scriptth :: script"></div>
 
 </body>

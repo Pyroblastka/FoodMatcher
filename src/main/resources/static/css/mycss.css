@@ -2,7 +2,8 @@
     margin: auto;
     width: 1226px;
     /*width: 40%;*/
-    background-color: #d7ddd9;
+    /*background-color: gray;*/
+    background-color:  #f4f4f4;
     /*min-height: calc(100vh - 94px);*/
     min-height: calc(100vh - 40px);
     /*min-height: calc(100vh);*/
