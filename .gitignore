@@ -1,6 +1,0 @@
-# Default ignored files
-/.idea
-/src/main/resources/application.properties
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
