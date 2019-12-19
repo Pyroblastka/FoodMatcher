@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--    <meta name="viewport" content="width=1024, initial-scale=1">-->
+    <link th:href="@{'/css/mycss.css'}" rel="stylesheet"/>
+    <link th:href="@{'/css/bootstrap.min.css'}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="backgr" style="background: #f4f4f4">
+
+    <div class="mainContainer">
+        <div th:replace="fragments/navbarth :: navbar"></div>
+        <div class="row" style="margin-right: 0px; margin-left: 0px; ">
+
+
+            <div id="oneContentMenu">
+                <!-- меню -->
+                <div class="row" id="idrow" style="width: 100%; ">
+                    <div class="col-md-3" style="margin-top: 1rem; ">
+                        <div th:replace="fragments/menuth :: menu"></div>
+                    </div>
+                    <div class="col-md-9" style="margin-top: 1rem; padding-right: 0px;padding-left: 0px">
+                        <div class="row" th:each="i: ${#numbers.sequence(1,4)}">
+
+                            <div class="card"
+                                 style="width: 18rem;  margin-left: 0.75rem; margin-bottom:1rem;   border: 1px red solid; border-radius: 10px"
+                                 th:each="e: ${#numbers.sequence(1,3)}">
+
+                                <div style="margin: 1rem">
+                                    <a href="index.html" style=" text-decoration: none;">
+                                        <img src="/img/sh.png" class="card-img-top" alt="...">
+                                    </a>
+                                    <div class="card-body">
+                                        <a href="index.html" style=" text-decoration: none;">
+                                            <h6>Название</h6>
+                                        </a>
+                                        <span>rating</span>
+                                        <hr style="margin-top: 0.25rem; margin-bottom: 0.25rem;">
+                                        <p class="card-text">Лучок, капустка, мазик</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footerContainer">
+        <div th:replace="fragments/footerth :: footer"></div>
+    </div>
+</div>
+
+<div th:replace="fragments/scriptth :: script"></div>
+
+</body>
+</html>

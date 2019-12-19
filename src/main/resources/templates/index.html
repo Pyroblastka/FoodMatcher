@@ -12,88 +12,171 @@
 
 <div class="backgr" style="background: #f4f4f4">
 
-<div class="mainContainer">
-    <div th:replace="fragments/navbarth :: navbar"></div>
-    <div class="row" style="margin-right: 0px; margin-left: 0px; ">
+    <div class="mainContainer">
+        <div th:replace="fragments/navbarth :: navbar"></div>
+        <div class="row" style="margin-right: 0px; margin-left: 0px; ">
 
-        <div class="row" id="idrow" >
-            <img src="/img/mainimg.png" style="width: 100%">
-            <!--            <img src="/img/mainimg2.png" style="width: 100%">-->
-        </div>
-
-        <div  style="width: 100%; margin: 1em 0 1em 0em; padding-left: 7%; padding-right: 7%; background: #fff; padding-top: 1em; border-radius: 7px">
-
-            <div class="row" style="margin-bottom: 1em"    th:each="i: ${#numbers.sequence(1,2)}">
-            <div  th:each="i: ${#numbers.sequence(1,4)}">
-            <div class="card bg-dark text-white text-center " style="width: 16rem; height: 10rem; margin-left: 0.75rem; ">
-                <img src="/img/doeat.jpg" style="width: 100%; height: 100%" alt="Travel1" class="card-img">
-                <div class="card-img-overlay" style="padding: 0.25rem">
-                    <div style="position: absolute">
-                        <!--                        <h4 class="card-title">Do eat</h4>-->
-                        <!--                        <h4 class="card-title">кафе для вашей мамаши</h4>-->
-
-                        <h4 th:text="${#strings.length('кафе для вашей мамаши')>15}? ${#strings.substring('кафе для вашей мамаши',0,15)}+'...' :'gruntov'"></h4>
-                    </div>
-                    <div class="row" style="margin: 0 0 0 0; position: absolute; top: 2em; width: 100%">
-                        <div class="col-md-4;" style="width: 33%; text-align: left">
-                            <h6>Кафе</h6>
-                        </div>
-                        <div class="col-md-5" style="width: 33%; text-align: right">до 24:00</div>
-                        <div class="col-md-3" style="width: 33%;"></div>
-                    </div>
-                    <div style="position: absolute; right: 2.25em;     top: 0.5em;">
-                        <img src="img/star.png" style="height: 20px;">
-                    </div>
-                    <div style="position: absolute; right: 0.75em;     top: 0.7em;">
-                        <h6>5/5</h6>
-                    </div>
-
-                    <div style="position: absolute; bottom: 0.5em; right: 0.5em ">
-                        <a href="#" class="btn btn-dark text-white mt-1">Посмотреть</a>
-                    </div>
-                </div>
-            </div> <!-- card end-->
-            </div> <!-- col each -->
-        </div>
-
-        </div>
-
-        <div class="row" id="idrow" style="width: 100%; background: chartreuse">
-            <div class="col-md-3" style="margin-top: 1rem; ">
-                <div th:replace="fragments/menuth :: menu"></div>
+            <div class="row" id="idrow">
+                <!--                <img src="/img/mainimg.png" style="width: 100%">-->
             </div>
-            <div class="col-md-9" style="margin-top: 1rem; padding-right: 0px;padding-left: 0px">
-                <div class="row" th:each="i: ${#numbers.sequence(1,4)}">
 
-                    <div class="card"
-                         style="width: 18rem;  margin-left: 0.75rem; margin-bottom:1rem;   border: 1px red solid; border-radius: 10px"
-                         th:each="e: ${#numbers.sequence(1,3)}">
+            <style>
+                .scale {
+                    display: inline-block; /* Строчно-блочный элемент */
+                    overflow: hidden; /* Скрываем всё за контуром */
+                }
 
-                        <div style="margin: 1rem">
-                            <a href="index.html" style=" text-decoration: none;">
-                                <img src="/img/sh.png" class="card-img-top" alt="...">
-                            </a>
-                            <div class="card-body">
-                                <a href="index.html" style=" text-decoration: none;">
-                                    <h6>Название</h6>
-                                </a>
-                                <span>rating</span>
-                                <hr style="margin-top: 0.25rem; margin-bottom: 0.25rem;">
-                                <p class="card-text">Лучок, капустка, мазик</p>
+                .card-img-overlay {
+                    display: inline-block; /* Строчно-блочный элемент */
+                    overflow: hidden; /* Скрываем всё за контуром */
+                }
+
+                .scale img {
+                    transition: 1s; /* Время эффекта */
+                    display: block; /* Убираем небольшой отступ снизу */
+                }
+
+                .scale img:hover {
+                    transform: scale(1.2); /* Увеличиваем масштаб */
+                }
+
+                /*.card-img-overlay:hover{*/
+                /*    transform: scale(1.2); !* Увеличиваем масштаб *!*/
+                /*}*/
+
+
+            </style>
+
+            <div class="card bg-dark text-white">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+                <div class="scale">
+                    <img src="img/cafe2.png" class="scale">
+                </div>
+
+            </div>
+
+            <style>
+                .image {
+                    overflow: hidden;
+                    width: 380px;
+                    height: 250px;
+                }
+            </style>
+
+            <div class="card bg-dark text-white">
+                <div class="scale">
+                    <img src="img/cafe3.jpg" class="scale">
+                </div>
+                <!--                <div class="scale">-->
+                <!--                </div>-->
+            </div>
+
+
+            <div id="oneContent">
+                <div id="rowHContent">
+                    <h2>Выбери жизнь. Выбери работу. Выбери карьеру. Выбери кафе.</h2>
+                </div>
+
+
+                <div class="row" style="margin-bottom: 1em" th:each="i: ${#numbers.sequence(1,2)}">
+                    <div th:each="i: ${#numbers.sequence(1,4)}">
+                        <a href="/menu">
+                            <div class="card bg-dark text-white text-center"
+                                 style="width: 16rem; height: 10rem; margin-left: 0.75rem; border-radius: 4px; text-shadow: black 1px 1px 0, black -1px -1px 0,
+                                 black -1px 1px 0, black 1px -1px 0; ">
+                                <!--                                <div class="card bg-dark text-white text-center "-->
+                                <!--                                 style="width: 16rem; height: 10rem; margin-left: 0.75rem; border-radius: 4px; ">-->
+
+                                <img id="myimgcl" src="img/doeat.jpg" class="scale" style="height: 100%; width: 100%">
+                                <div class="card-img-overlay" style="padding: 0.25rem">
+                                    <div style="position: absolute">
+                                        <!--                                                <h4 class="card-title">Do eat</h4>-->
+                                        <h4
+                                                th:text="${#strings.length('кафе для вашей мамаши')>15}? ${#strings.substring('Кафе для вашей мамаши',0,15)}+'...' :'gruntov'"></h4>
+                                    </div>
+                                    <div style="position: absolute; right: 0.5em; bottom: 0.5em;">
+                                        <img src="img/star.png" style="height: 20px;">
+                                        <img src="img/star.png" style="height: 20px;">
+                                        <img src="img/star.png" style="height: 20px;">
+                                        <img src="img/star.png" style="height: 20px;">
+                                        <img src="img/star.png" style="height: 20px;">
+                                    </div>
+
+                                    <div class="row" style="margin: 0 0 0 0; position: absolute; top: 2em; width: 100%">
+                                        <div class="col-md-4;" style="width: 33%; text-align: left">
+                                            <h6>Кафе</h6>
+                                        </div>
+                                        <div class="col-md-5" style="width: 33%; text-align: right">до 24:00</div>
+                                        <div class="col-md-3" style="width: 33%;"></div>
+                                    </div>
+
+                                    <!--                                    <div style="position: absolute; right: 0.75em;     top: 0.7em;">-->
+                                    <!--                                        <h6>5/5</h6>-->
+                                    <!--                                    </div>-->
+
+                                    <!--                    <div style="position: absolute; bottom: 0.5em; right: 0.5em ">-->
+                                    <!--                        <a href="/menu" class="btn btn-dark text-white mt-1">Посмотреть</a>-->
+                                    <!--                    </div>-->
+
+                                </div>
+                            </div>
+                        </a>
+                    </div> <!-- col each -->
+                </div> <!-- row end -->
+
+            </div> <!-- кафе -->
+
+
+            <div id="oneContent" style="padding-left: 4%; padding-right: 0%">
+
+                <div id="rowHContent">
+                    <h2>Последние отзывы</h2>
+                </div>
+
+                <!-- 270 135 -->
+                <div th:each="i: ${#numbers.sequence(1,2)}">
+                    <div class="row" style="margin-bottom: 1em;">
+                        <div th:each="i: ${#numbers.sequence(1,4)}">
+
+                            <div class="card rew"
+                                 style="width: 280px; height: 220px; border-radius: 4px; margin-left: 10px ">
+                                <div class="card-body">
+                                    <div style="width: 240px; height: 260px">
+                                        <div class="row rowCard">
+                                            <h4>Сырный Джо</h4>
+                                        </div>
+                                        <div class="row rowCard">
+                                            <h6 style="margin-bottom: 0px;">Do eat</h6>
+                                        </div>
+                                        <div class="row rowCard">
+                                            <div th:each="i: ${#numbers.sequence(1,5)}">
+                                                <img src="img/star.png" style="height: 15px;">
+                                            </div>
+                                        </div>
+                                        <div class="row rowCard">
+                                            <!--   220 -->
+                                            <p style="font-size: 14px; ">Праздновали День рождения. Всё прошло
+                                                замечательно, отличная кухня, подача блюд, обслуживание - всё было на
+                                                самом высоком уровне. Спасибо!
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                    </div>
-
-
+                    </div> <!-- row карты отзыв -->
                 </div>
             </div>
+
+
         </div>
     </div>
-</div>
-<div class="footerContainer">
-    <div th:replace="fragments/footerth :: footer"></div>
-</div>
+    <div class="footerContainer">
+        <div th:replace="fragments/footerth :: footer"></div>
+    </div>
 </div>
 
 <div th:replace="fragments/scriptth :: script"></div>
