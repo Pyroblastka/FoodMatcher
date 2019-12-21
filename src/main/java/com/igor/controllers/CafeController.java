@@ -20,13 +20,13 @@ public class CafeController {
     @Autowired
     CafeRepository cafeRepository;
 
-    @GetMapping("addcafe")
+    @GetMapping("/addcafe")
     public String getCafeForm(Model model) {
         model.addAttribute("defaultCafe",new Cafe());
         return "cafeform";
     }
 
-    @PostMapping("addcafe")
+    @PostMapping("/addcafe")
     public String addCafe(@ModelAttribute("cafe") Cafe cafe,  @RequestParam("img") MultipartFile image,Model model) throws IOException {
         cafe.setImage(image);
         cafeRepository.saveAndFlush(cafe);

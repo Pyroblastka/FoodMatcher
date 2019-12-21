@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--    <meta name="viewport" content="width=1024, initial-scale=1">-->
+    <link th:href="@{'/css/mycss.css'}" rel="stylesheet"/>
+    <link th:href="@{'/css/bootstrap.min.css'}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="backgr" style="background: #f4f4f4">
+
+    <div class="mainContainer">
+        <div th:replace="fragments/navbarth :: navbar"></div>
+
+        <div id="oneContent" style="padding-bottom: 1em">
+            <div class="row" style="margin-right: 0px; margin-left: 0px; ">
+
+                <div class="row" style="width: 100%">
+                    <div class="col-md-5">
+                        <img src="img/cafe3.jpg" style="width: 100%">
+                    </div>
+                    <div class="col-md-7">
+                        <div style="text-align: left">
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <h2>Do eat</h2>
+
+                                    <div style="padding-top: 7px; padding-left: 10px">
+                                        <img src="img/star.png" style="height: 20px;">
+                                        <img src="img/star.png" style="height: 20px;">
+                                        <img src="img/star.png" style="height: 20px;">
+                                        <img src="img/star.png" style="height: 20px;">
+                                        <img src="img/star.png" style="height: 20px;">
+
+                                    </div>
+                                    <span style="margin-top: 8px; padding-left: 5px;"><h5>(999)</h5></span>
+                                    <span style="margin-top: 4px; padding-left: 5px;"><h5>.</h5></span>
+                                    <span style="margin-top: 8px; padding-left: 5px;"><h5>$$</h5></span>
+                                </div>
+                            </div>
+
+                            <h5>г. Новополоцк, ул Юбилейная д. 666</h5>
+                            <hr>
+                            <h4>Кухня:</h4>
+                            <p style="margin-bottom: 5px;">Фаст-фуд</p>
+                            <h4>Описание: </h4>
+                            <p style="margin-bottom: 5px;">Лучшее заведение в городе. Тупа чётко. Молодцы ребята. Лучшее
+                                заведение в городе. Тупа чётко. Молодцы ребята.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div> <!-- div one content-->
+
+        <div id="oneContent" style="padding-bottom: 1em; padding-left: 5%; ">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <h2>Отзывы о еде</h2>
+                    </div>
+
+                    <div class="row">
+                        <hr style="width: 100%; margin-top: 0">
+                    </div>
+
+                    <div class="row">
+                        <div class="card" style="width: 48rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk
+                                    of
+                                    the card's content.</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="row">
+                        <h2 style=" margin-left: 140px;">Рейтинг</h2>
+                    </div>
+
+
+                    <div class="row">
+                        <hr style="width: 100%; margin-top: 0">
+                    </div>
+                    <div style="padding-left: 60px">
+                        <h5> Показать отзывы с оценкой</h5>
+                        <div class="row" style="margin-left: 0">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <img src="img/5rate.jpg">
+                            </div>
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <a href="#">5 отзывов</a>
+                            </div>
+                        </div>
+                    <div class="row" style="margin-left: 0">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <img src="img/4rate.jpg">
+                            </div>
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <a href="#">4 отзывов</a>
+                            </div>
+                        </div>
+                    <div class="row" style="margin-left: 0">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <img src="img/3rate.jpg">
+                            </div>
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <a href="#">3 отзывов</a>
+                            </div>
+                        </div>
+                    <div class="row" style="margin-left: 0">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <img src="img/2rate.jpg">
+                            </div>
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <a href="#">2 отзывов</a>
+                            </div>
+                        </div>
+                    <div class="row" style="margin-left: 0">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <img src="img/1rate.jpg">
+                            </div>
+                            <div class="col-md-6" style="padding-left: 0px;">
+                            <a href="#">1 отзывов</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="footerContainer">
+        <div th:replace="fragments/footerth :: footer"></div>
+    </div>
+</div>
+
+
+<div th:replace="fragments/scriptth :: script"></div>
+
+</body>
+</html>

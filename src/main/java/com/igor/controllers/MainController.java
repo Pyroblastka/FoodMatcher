@@ -18,15 +18,20 @@ public class MainController {
     CafeRepository cafeRepository;
 
     @GetMapping(value = {"/", "/index"})
-    public String index(Model model){
+    public String index(Model model) {
         List<Cafe> cafies = cafeRepository.findAll();
         model.addAttribute("cafies", cafies);
         return "index";
     }
 
-    @GetMapping("menu")
-    public String menu(){
+    @GetMapping("/menu")
+    public String menu() {
         return "menu";
+    }
+
+    @GetMapping("/cafe")
+    public String cafe() {
+        return "cafe";
     }
 
 }
