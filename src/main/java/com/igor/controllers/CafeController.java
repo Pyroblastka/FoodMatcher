@@ -31,6 +31,6 @@ public class CafeController {
         cafe.setImage(image);
         cafeRepository.saveAndFlush(cafe);
         //model.addAttribute("cafies", cafeRepository.findAll());
-        return "redirect:/";
+        return "redirect:/index";
     }
 }

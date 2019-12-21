@@ -27,7 +27,7 @@
                 </div>
 
                 <th:block th:with="colCount=${4}">
-                    <div th:each="r : ${#numbers.sequence(0, cafies.size(), colCount)}" class="row">
+                    <div th:each="r : ${#numbers.sequence(0, cafies.size(), colCount)}" style="margin-bottom: 1em"  class="row">
                         <div th:each="c : ${#numbers.sequence(0, colCount - 1)}" th:if="${r + c &lt; cafies.size()}">
                             <div th:with="cafe=${cafies.get(r + c)}">
                                 <a href="/menu">

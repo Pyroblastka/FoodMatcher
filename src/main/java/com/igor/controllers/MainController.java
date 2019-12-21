@@ -17,7 +17,7 @@ public class MainController {
     @Autowired
     CafeRepository cafeRepository;
 
-    @GetMapping("/")
+    @GetMapping(value = {"/", "/index"})
     public String index(Model model){
         List<Cafe> cafies = cafeRepository.findAll();
         model.addAttribute("cafies", cafies);
