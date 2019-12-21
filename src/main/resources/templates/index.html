@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,60 +21,64 @@
             </div>
 
 
-
-
             <div id="oneContent">
                 <div id="rowHContent">
                     <h2>Выбери жизнь. Выбери работу. Выбери карьеру. Выбери кафе.</h2>
                 </div>
 
-
-                <div class="row" style="margin-bottom: 1em" th:each="i: ${#numbers.sequence(1,2)}">
-                    <div th:each="i: ${#numbers.sequence(1,4)}">
-                        <a href="/menu">
-                            <div class="card bg-dark text-white text-center"
-                                 style="width: 16rem; height: 10rem; margin-left: 0.75rem; border-radius: 4px; text-shadow: black 1px 1px 0, black -1px -1px 0,
+                <th:block th:with="colCount=${4}">
+                    <div th:each="r : ${#numbers.sequence(0, cafies.size(), colCount)}" class="row">
+                        <div th:each="c : ${#numbers.sequence(0, colCount - 1)}" th:if="${r + c &lt; cafies.size()}">
+                            <div th:with="cafe=${cafies.get(r + c)}">
+                                <a href="/menu">
+                                    <div class="card bg-dark text-white text-center"
+                                         style="width: 16rem; height: 10rem; margin-left: 0.75rem; border-radius: 4px; text-shadow: black 1px 1px 0, black -1px -1px 0,
                                  black -1px 1px 0, black 1px -1px 0; ">
-                                <!--                                <div class="card bg-dark text-white text-center "-->
-                                <!--                                 style="width: 16rem; height: 10rem; margin-left: 0.75rem; border-radius: 4px; ">-->
+                                        <!--                                <div class="card bg-dark text-white text-center "-->
+                                        <!--                                 style="width: 16rem; height: 10rem; margin-left: 0.75rem; border-radius: 4px; ">-->
 
-                                <img id="myimgcl" src="img/doeat.jpg" class="scale" style="height: 100%; width: 100%">
-                                <div class="card-img-overlay" style="padding: 0.25rem">
-                                    <div style="position: absolute">
-                                        <!--                                                <h4 class="card-title">Do eat</h4>-->
-                                        <h4
-                                                th:text="${#strings.length('кафе для вашей мамаши')>15}? ${#strings.substring('Кафе для вашей мамаши',0,15)}+'...' :'gruntov'"></h4>
-                                    </div>
-                                    <div style="position: absolute; right: 0.5em; bottom: 0.5em;">
-                                        <img src="img/star.png" style="height: 20px;">
-                                        <img src="img/star.png" style="height: 20px;">
-                                        <img src="img/star.png" style="height: 20px;">
-                                        <img src="img/star.png" style="height: 20px;">
-                                        <img src="img/star.png" style="height: 20px;">
-                                    </div>
+                                        <img id="myimgcl" src="" class="scale"
+                                             th:src="@{'/cafe/' + ${cafe.id} + '/cafeimage'}"
+                                             style="height: 100%; width: 100%">
+                                        <div class="card-img-overlay" style="padding: 0.25rem">
+                                            <div style="position: absolute">
+                                                <!--                                                <h4 class="card-title">Do eat</h4>-->
+                                                <h4
+                                                        th:text="${cafe.name}"></h4>
+                                            </div>
+                                            <div style="position: absolute; right: 0.5em; bottom: 0.5em;">
+                                                <img src="img/star.png" style="height: 20px;">
+                                                <img src="img/star.png" style="height: 20px;">
+                                                <img src="img/star.png" style="height: 20px;">
+                                                <img src="img/star.png" style="height: 20px;">
+                                                <img src="img/star.png" style="height: 20px;">
+                                            </div>
 
-                                    <div class="row" style="margin: 0 0 0 0; position: absolute; top: 2em; width: 100%">
-                                        <div class="col-md-4;" style="width: 33%; text-align: left">
-                                            <h6>Кафе</h6>
+                                            <div class="row"
+                                                 style="margin: 0 0 0 0; position: absolute; top: 2em; width: 100%">
+                                                <div class="col-md-4;" style="width: 33%; text-align: left">
+                                                    <h6>Кафе</h6>
+                                                </div>
+                                                <div class="col-md-5" style="width: 33%; text-align: right">до 24:00
+                                                </div>
+                                                <div class="col-md-3" style="width: 33%;"></div>
+                                            </div>
+
+                                            <!--                                    <div style="position: absolute; right: 0.75em;     top: 0.7em;">-->
+                                            <!--                                        <h6>5/5</h6>-->
+                                            <!--                                    </div>-->
+
+                                            <!--                    <div style="position: absolute; bottom: 0.5em; right: 0.5em ">-->
+                                            <!--                        <a href="/menu" class="btn btn-dark text-white mt-1">Посмотреть</a>-->
+                                            <!--                    </div>-->
+
                                         </div>
-                                        <div class="col-md-5" style="width: 33%; text-align: right">до 24:00</div>
-                                        <div class="col-md-3" style="width: 33%;"></div>
                                     </div>
-
-                                    <!--                                    <div style="position: absolute; right: 0.75em;     top: 0.7em;">-->
-                                    <!--                                        <h6>5/5</h6>-->
-                                    <!--                                    </div>-->
-
-                                    <!--                    <div style="position: absolute; bottom: 0.5em; right: 0.5em ">-->
-                                    <!--                        <a href="/menu" class="btn btn-dark text-white mt-1">Посмотреть</a>-->
-                                    <!--                    </div>-->
-
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div> <!-- col each -->
-                </div> <!-- row end -->
-
+                        </div>
+                    </div>
+                </th:block>
             </div> <!-- кафе -->
 
 

@@ -28,15 +28,27 @@ public class CafeImageController {
     @Autowired
     CafeRepository cafeRepository;
 
-    @PostMapping("cafe/{id}/image")
+    @PostMapping("/cafe/{id}/image")
     public String handleImagePost(@PathVariable Long id, @RequestParam("imagefile") MultipartFile file) throws IOException {
         imageService.saveImageFile(cafeRepository.findById(id).get(), file);
-        return "redirect:/recipe/" + id + "/show";
+        return "redirect:/cafe/" + id + "/show";
     }
 
-    @GetMapping("cafe/{id}/cafeimage")
+    @GetMapping("/cafe/{id}/cafeimage")
     public void renderImageFromDB(@PathVariable Long id, HttpServletResponse response) throws IOException {
         Cafe cafe = cafeRepository.findById(id).get();
-        DishImageController.renderImage(response, cafe.getImage());
+
+        if (cafe.getImage() != null) {
+            byte[] byteArray = new byte[cafe.getImage().length];
+            int i = 0;
+
+            for (Byte wrappedByte : cafe.getImage()) {
+                byteArray[i++] = wrappedByte; //auto unboxing
+            }
+
+            response.setContentType("image/jpeg");
+            InputStream is = new ByteArrayInputStream(byteArray);
+            IOUtils.copy(is, response.getOutputStream());
+        }
     }
 }

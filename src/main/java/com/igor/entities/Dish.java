@@ -8,7 +8,7 @@ public class Dish extends ImagedEntity{
     @Column
     String name;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     List<DishReview> dishReviews;
 
     public Dish() {

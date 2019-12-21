@@ -12,7 +12,7 @@ public class Cafe extends ImagedEntity{
     @Column
     String address;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     List<CafeReview> cafeReviews;
 
     public Cafe() {
@@ -21,7 +21,6 @@ public class Cafe extends ImagedEntity{
     public Cafe(String name, String address) {
         this.name = name;
         this.address = address;
-        this.cafeReviews = cafeReviews;
     }
 
     public String getName() {

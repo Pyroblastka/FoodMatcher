@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--    <meta name="viewport" content="width=1024, initial-scale=1">-->
+    <link th:href="@{'/css/mycss.css'}" rel="stylesheet"/>
+    <link th:href="@{'/css/bootstrap.min.css'}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="backgr" style="background: #f4f4f4">
+
+    <div class="mainContainer">
+        <div th:replace="fragments/navbarth :: navbar"></div>
+        <div class="row" style="margin-right: 0px; margin-left: 0px; ">
+
+
+            <form action="/addcafe" method="post" enctype="multipart/form-data" th:object="${defaultCafe}">
+
+                <input name="id" type="number" hidden="hidden" th:field="${defaultCafe.id}">
+
+                <div class="form-group col-md-6">
+                    <label for="name">Название заведения</label>
+                    <input name="name" type="text" class="form-control" id="name"  placeholder="Название" required
+                           maxlength=30 th:field="${defaultCafe.name}">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="address">Адрес</label>
+                    <input type="text" name="address" maxlength="200" class="form-control" id="address" required
+                           placeholder="Адрес" th:field="${defaultCafe.address}">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="img">Изображение</label>
+                    <input type="file" name="img" class="form-control-file" id="img">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Подтвердить</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="footerContainer">
+        <div th:replace="fragments/footerth :: footer"></div>
+    </div>
+</div>
+
+<div th:replace="fragments/scriptth :: script"></div>
+
+</body>
+</html>

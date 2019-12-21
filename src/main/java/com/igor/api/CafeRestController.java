@@ -12,12 +12,12 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-public class CafeController {
+public class CafeRestController {
 
     @Autowired
     CafeRepository cafeRepository;
 
-    @RequestMapping("/addcafe")
+    @RequestMapping("cafe/addcafe")
     Object addcafe(@RequestParam(value = "name") String name,
                    @RequestParam(value = "address") String address) {
         Cafe cafe = new Cafe(name, address);
@@ -25,7 +25,7 @@ public class CafeController {
         return "done";
     }
 
-    @RequestMapping("/getcafe")
+    @RequestMapping("cafe/getcafe")
     public List<Cafe> getall(@RequestParam(value = "name", required = false) String name) throws IOException {
         if (name != null) {
             return cafeRepository.findByName(name);
@@ -33,12 +33,12 @@ public class CafeController {
         return cafeRepository.findAll();
     }
 
-    @RequestMapping("/getcafe/{id}")
+    @RequestMapping("cafe/getcafe/{id}")
     public Cafe getcafe(@PathVariable(value = "id") Long id) throws IOException {
         return cafeRepository.findById(id).get();
     }
 
-    @RequestMapping("/deletecafe")
+    @RequestMapping("cafe/deletecafe")
     Object deletecafe(@RequestParam(value = "id", required = false) Long id) {
         if(id==null) {
             return "no required param \"id\"";

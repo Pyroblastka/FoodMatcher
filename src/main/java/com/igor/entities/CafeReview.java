@@ -11,7 +11,7 @@ public class CafeReview extends AbstractEntity{
     @Column
     String text;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "customer", nullable = false)
     private User user;
 

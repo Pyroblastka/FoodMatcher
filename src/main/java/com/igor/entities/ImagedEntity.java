@@ -2,10 +2,14 @@ package com.igor.entities;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Lob;
+import javax.persistence.*;
 import java.io.IOException;
 
-public class ImagedEntity extends AbstractEntity {
+@Entity
+@Inheritance
+@DiscriminatorColumn
+public abstract class ImagedEntity extends AbstractEntity {
+    //@Column(name = "image", columnDefinition = "BLOB")
     @Lob
     private Byte[] image;
 

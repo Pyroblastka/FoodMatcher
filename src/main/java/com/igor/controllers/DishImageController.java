@@ -40,13 +40,13 @@ public class DishImageController {
         }
     }
 
-    @PostMapping("cafe/{id}/image")
+    @PostMapping("dish/{id}/image")
     public String handleImagePost(@PathVariable Long id, @RequestParam("imagefile") MultipartFile file) throws IOException {
         imageService.saveImageFile(dishRepository.findById(id).get(), file);
         return "redirect:/recipe/" + id + "/show";
     }
 
-    @GetMapping("cafe/{id}/cafeimage")
+    @GetMapping("dish/{id}/cafeimage")
     public void renderImageFromDB(@PathVariable Long id, HttpServletResponse response) throws IOException {
         Dish dish = dishRepository.findById(id).get();
 
