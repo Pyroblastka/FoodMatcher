@@ -45,6 +45,11 @@
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
             <version>3.0.4.RELEASE </version>
         </dependency-->
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
         <!-- содержит в себе необходимые библиотеки для создания ВЕБ приложения -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Dish extends AbstractEntity{
+public class Dish extends ImagedEntity{
     @Column
     String name;
 
