@@ -1,6 +1,7 @@
 package com.igor.repositories;
 
 import com.igor.entities.Cafe;
+import com.igor.entities.Dish;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--    <meta name="viewport" content="width=1024, initial-scale=1">-->
+    <link th:href="@{'/css/mycss.css'}" rel="stylesheet"/>
+    <link th:href="@{'/css/bootstrap.min.css'}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="backgr" style="background: #f4f4f4">
+
+    <div class="mainContainer">
+        <div th:replace="fragments/navbarth :: navbar"></div>
+
+        <div id="oneContent" style="padding-left: 35%;padding-right: 35%;">
+            <div class="row" style="margin-right: 0px; margin-left: 0px; ">
+
+                <h1>Добавить блюдо в кафе <b th:text="${cafe.name}">cafe</b>.</h1>
+                <form th:action="'/cafe/'+${cafe.id}+'/newdish'" action="/newdish" method="post"
+                      enctype="multipart/form-data" th:object="${dish}"
+                      class="col-md-12" name="dishform">
+
+                    <input name="id" type="number" hidden="hidden" th:field="${cafe.id}">
+
+                    <div class="form-group col-md-12">
+                        <label for="name">Название блюда</label>
+                        <input name="name" type="text" class="form-control" id="name" placeholder="Название" required
+                               maxlength=30>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile02"
+                                   style="" required name="img">
+                            <label class="custom-file-label" for="inputGroupFile02">Выберите файл</label>
+                        </div>
+                    </div>
+
+                    <label for="ingrs">Ингредиенты</label>
+                    <div name="ingrs" id="ingrs">
+                        <div class="form-group col-md-12">
+                            <input list="results0" name="ingredients" type="text" class="form-control" id="ingredients"
+                                   oninput="search(this)"
+                                   placeholder="Ингредиент" required
+                                   maxlength=30>
+                            <datalist id="results0"></datalist>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <input type="button" class="form-control" onclick="addingr()" th:value="'Ещё ингредиент'">
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary">Подтвердить</button>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div> <!-- div one content-->
+    </div>
+    <div class="footerContainer">
+        <div th:replace="fragments/footerth :: footer"></div>
+    </div>
+</div>
+<script>
+    var ingrcount = 1;
+    function addingr() {
+        var ingrinput = document.createElement("input");
+        ingrinput.name = 'ingredients';
+        ingrinput.type = 'text';
+        ingrinput.className = 'form-control';
+        ingrinput.placeholder = 'Ингредиент';
+        ingrinput.required = true;
+        ingrinput.maxLength = 30;
+        ingrinput.setAttribute('list','results'+ingrcount);
+        ingrinput.setAttribute('oninput','search(this)');
+
+        var res = document.createElement("datalist");
+        res.id = 'results'+ingrcount++;
+
+        var div = document.createElement("div");
+        div.classList.add('form-group', 'col-md-12');
+        div.appendChild(ingrinput);
+        div.appendChild(res);
+
+        document.getElementById("ingrs").appendChild(div);
+    }
+
+    async function search(input) {
+
+        fetch("http://localhost:9090/searchq/?value=" + input.value, {
+            credentials: 'same-origin',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then(response => response.json())
+            .then(ingredients => {
+                document.getElementById(input.getAttribute('list')).innerHTML = '';
+                for (var i of ingredients) {
+                    var optionElement = document.createElement("option");
+                    optionElement.value = i.name;
+                    document.getElementById(input.getAttribute('list')).appendChild(optionElement);
+                }
+            });
+    }
+</script>
+<script>
+    // alert("mm");
+    $('#inputGroupFile02').on('change', function () {
+        //get the file name
+        var fileName = $(this).val();
+
+        var nnfile = fileName.replace("C:\\fakepath\\", '');
+        console.log(nnfile);
+
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(nnfile);
+    })
+</script>
+
+<div th:replace="fragments/scriptth :: script"></div>
+
+</body>
+</html>

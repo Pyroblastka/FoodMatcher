@@ -5,11 +5,12 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.*;
 import java.io.IOException;
 
-@Entity
-@Inheritance
+//@Entity
+//@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass
 @DiscriminatorColumn
 public abstract class ImagedEntity extends AbstractEntity {
-    //@Column(name = "image", columnDefinition = "BLOB")
+    @Column(name = "img")
     @Lob
     private Byte[] image;
 

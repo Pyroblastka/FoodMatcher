@@ -24,28 +24,35 @@
                         <div th:replace="fragments/menuth :: menu"></div>
                     </div>
                     <div class="col-md-9" style="margin-top: 1rem; padding-right: 0px;padding-left: 0px">
-                        <div class="row" th:each="i: ${#numbers.sequence(1,4)}">
 
-                            <div class="card"
-                                 style="width: 18rem;  margin-left: 0.75rem; margin-bottom:1rem;   border: 1px red solid; border-radius: 10px"
-                                 th:each="e: ${#numbers.sequence(1,3)}">
+                        <th:block th:with="colCount=${3}">
+                            <div th:each="r : ${#numbers.sequence(0, dishes.size(), colCount)}" style="margin-bottom: 1em"  class="row">
+                                <div th:each="c : ${#numbers.sequence(0, colCount - 1)}" th:if="${r + c &lt; dishes.size()}">
+                                    <div th:with="dish=${dishes.get(r + c)}">
 
-                                <div style="margin: 1rem">
-                                    <a href="index.html" style=" text-decoration: none;">
-                                        <img src="/img/sh.png" class="card-img-top" alt="...">
-                                    </a>
-                                    <div class="card-body">
-                                        <a href="index.html" style=" text-decoration: none;">
-                                            <h6>Название</h6>
-                                        </a>
-                                        <span>rating</span>
-                                        <hr style="margin-top: 0.25rem; margin-bottom: 0.25rem;">
-                                        <p class="card-text">Лучок, капустка, мазик</p>
+                                        <div class="card"
+                                             style="width: 18rem;  margin-left: 0.75rem; margin-bottom:1rem;   border: 1px red solid; border-radius: 10px"
+>
+                                            <div style="margin: 1rem">
+                                                <a href="index.html" style=" text-decoration: none;">
+                                                    <img src="/img/sh.png" class="card-img-top" alt="...">
+                                                </a>
+                                                <div class="card-body">
+                                                    <a href="index.html" style=" text-decoration: none;">
+                                                        <h6 th:text="${dish.name}"  >Название</h6>
+                                                    </a>
+                                                    <span>rating</span>
+                                                    <hr style="margin-top: 0.25rem; margin-bottom: 0.25rem;">
+                                                    <p class="card-text" th:text="${dish.getIngredientsStr()}">Лучок, капустка, мазик</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                 </div>
-
                             </div>
-
+                        </th:block>
 
                         </div>
                     </div>
