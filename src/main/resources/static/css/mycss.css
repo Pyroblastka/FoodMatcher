@@ -21,7 +21,7 @@
 
 #oneContent {
     width: 100%;
-    margin: 1em 0 1em 0em;
+    margin: 1.25em 0 0em 0em;
     padding-left: 7%;
     padding-right: 7%;
     background: #fff;
@@ -49,7 +49,7 @@
     margin-right: 0px;
 }
 
-#myimgcl:hover{
+#myimgcl:hover {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
@@ -58,6 +58,7 @@
     display: inline-block; /* Строчно-блочный элемент */
     overflow: hidden; /* Скрываем всё за контуром */
 }
+
 /*#myimgcl2:hover{*/
 /*    -webkit-transform: scale(1.2);*/
 /*    -ms-transform: scale(1.2);*/
@@ -68,11 +69,11 @@
 /*    overflow: hidden; !* Скрываем всё за контуром *!*/
 /*}*/
 
-.card.bg-dark.text-white.text-center:hover{
+.card.bg-dark.text-white.text-center:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
-.card.rew:hover{
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+.card.rew:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
