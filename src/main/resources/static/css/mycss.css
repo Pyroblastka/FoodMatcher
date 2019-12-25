@@ -77,3 +77,6 @@
 .card.rew:hover {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
+.card.food:hover {
+    border: 1px solid red; /* Рамка при наведении на ссылку курсора мыши */
+}

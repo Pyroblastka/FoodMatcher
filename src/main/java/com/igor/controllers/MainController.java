@@ -34,4 +34,14 @@ public class MainController {
         return "cafe";
     }
 
+    @GetMapping("/food")
+    public String food() {
+        return "food";
+    }
+
+    @GetMapping("/userReviews")
+    public String userReviews() {
+        return "userReviews";
+    }
+
 }

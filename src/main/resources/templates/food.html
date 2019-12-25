@@ -23,14 +23,14 @@
 
                 <div class="row" style="width: 100%">
                     <div class="col-md-5">
-                        <img src="img/cafe3.jpg" style="width: 100%">
+                        <img src="img/shaurma0.jpg" style="width: 100%">
                     </div>
                     <div class="col-md-7">
                         <div style="text-align: left">
 
                             <div class="col-md-12">
                                 <div class="row">
-                                    <h2>Do eat</h2>
+                                    <h2>Шаурма Игоряная</h2>
 
                                     <div style="padding-top: 7px; padding-left: 10px">
                                         <img src="img/star.png" style="height: 20px;">
@@ -41,18 +41,12 @@
 
                                     </div>
                                     <span style="margin-top: 8px; padding-left: 5px;"><h5>(999)</h5></span>
-                                    <span style="margin-top: 4px; padding-left: 5px;"><h5>.</h5></span>
-                                    <span style="margin-top: 8px; padding-left: 5px;"><h5>$$</h5></span>
                                 </div>
                             </div>
 
-                            <h5>г. Новополоцк, ул Юбилейная д. 666</h5>
                             <hr>
-                            <h4>Кухня:</h4>
-                            <p style="margin-bottom: 5px;">Фаст-фуд</p>
-                            <h4>Описание: </h4>
-                            <p style="margin-bottom: 5px;">Лучшее заведение в городе. Тупа чётко. Молодцы ребята. Лучшее
-                                заведение в городе. Тупа чётко. Молодцы ребята.</p>
+                            <h4>Ингредиенты: </h4>
+                            <p style="margin-bottom: 5px;">Лаваш, сыр, курица, огурцы, помидоры, перец, соус (кетчуп-майонез), масло сливочное</p>
 
                         </div>
                     </div>
@@ -73,26 +67,28 @@
                         <hr style="width: 100%; margin-top: 0">
                     </div>
 
-                    <div class="row">
+                    <div class="row" th:each="r : ${#numbers.sequence(0, 3)}" style="margin-bottom: 1em">
                         <div class="card" style="width: 48rem;">
                             <div class="card-body">
-                                <a href="/userReviews"><h5 class="card-title">Игорь</h5></a>
+
+                                <div class="row" style="margin-left: 0px; margin-bottom: -10px;">
+                                    <!--                                    <a href="#">   <h5 class="card-title" style="color: black; padding-right: 5px;">Сырный Джо</h5></a>-->
+                                    <a href="#"><h5 class="card-title">Игорь</h5></a>
+                                    <img src="img/4minirate.jpg" style="height: 23px; margin-top: 2px;margin-left: 5px;">
+                                    <h6 class=""
+                                        style="margin-top: 2px; margin-left: 5px;">Хороший товар</h6>
+                                </div>
 
                                 <h6 class="card-subtitle mb-2 text-muted" style="font-weight: 400; font-size: 0.88em;">
                                     21.12.2019</h6>
 
-                                <div class="row" style="margin-left: 0px; margin-bottom: -10px;">
-                                    <a href="#">   <h5 class="card-title" style="color: black; padding-right: 5px;">Сырный Джо</h5></a>
-                                    <img src="img/4minirate.jpg" style="height: 23px">
-                                    <h6 class=""
-                                        style="margin-top: 1px; margin-left: 5px;">Хороший товар</h6>
-                                </div>
+
                                 <span><b style="font-size: 0.9em;">Достоинства:</b></span>
-                                <p class="card-text" style="margin-bottom: 5px;">- Как курица? - Я не курю!</p>
+                                <p class="card-text" style="margin-bottom: 5px;">Вкусно, сочно и по красоте. Нет капусты.</p>
                                 <span><b style="font-size: 0.9em;">Недостатки:</b></span>
-                                <p class="card-text" style="margin-bottom: 5px;">За такие деньги она должна делать сосай</p>
+                                <p class="card-text" style="margin-bottom: 5px;">Нету.</p>
                                 <span><b style="font-size: 0.9em;">Комментарий:</b></span>
-                                <p class="card-text">Шо то хуйня, шо это хуйня. Вот это обе хуйни такие, шо я, бля, ебал её маму у рот. </p>
+                                <p class="card-text">Собственно, хорошо.</p>
                             </div>
                         </div>
                     </div>
